@@ -1,0 +1,9 @@
+{
+    "development": {
+        "PORT": 3000,
+        "HOST_BD": "127.0.0.1",
+        "PORT_BD": "27017",
+        "NAME_BD": "ParqueExplora",
+        "DIALECT_DB": "mongodb"
+    }
+}

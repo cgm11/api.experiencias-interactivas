@@ -3,6 +3,11 @@ const httpCodes = require('../constants/httpCodes');
 
 class Responses {
 
+    static render(res, data) {
+        res.status(httpCodes.CODE_OK)
+            .render('index');;
+    }
+
     static success(res, data) {
         res.status(httpCodes.CODE_OK)
             .json({

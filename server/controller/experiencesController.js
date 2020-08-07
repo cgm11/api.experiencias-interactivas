@@ -7,7 +7,7 @@ async function getExperiences(req, res) {
     try {
         const experiences = await ExperiencesDao.getExperiences();
         if (experiences == messages.ERROR) ResponseUtil.internalError(res, messages.MESSAGE_ERROR);
-        ResponseUtil.success(res, experiences);
+        ResponseUtil.render(res, experiences);
     }
     catch (e) { return messages.ERROR }
 }
@@ -16,6 +16,8 @@ async function setExperience(req, res) {
     try {
         const images = await services.getImage(req.body.titulo);
         req.body.imagenRelacionada = images;
+        console.log(req.file);
+        req.body.imagen = `../public/uploads/${req.file.filename}`;
         const experience = await ExperiencesDao.setExperience(req.body);
         if (experience == messages.ERROR) ResponseUtil.internalError(res, messages.MESSAGE_ERROR);
         ResponseUtil.created(res, req.body);

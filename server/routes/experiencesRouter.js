@@ -1,9 +1,9 @@
-const express = require('express');
+const { Router } = require('express');
 const controller = require('../controller/experiencesController');
-
-const router = express.Router();
+const middlewares = require('../middlewares/uploadImages');
+const router = Router();
 
 router.get('/', controller.getExperiences);
-router.post('/', controller.setExperience);
+router.post('/', middlewares.upload, controller.setExperience);
 
 module.exports = router;

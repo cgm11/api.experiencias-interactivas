@@ -18,7 +18,6 @@ class ProductsDao {
     }*/
 
     static async setExperience(body) {
-        console.log("entro a dao")
         const experience = new Experience(body);
         try { return await experience.save() }
         catch (e) { 
